@@ -13,14 +13,18 @@ export class OtpConfirmationComponent implements OnInit {
 
   public otp : any;
   public transactionId : any;
+  public retriveData : any;
+  public customer:any;
   constructor(private router : Router,private activatedRoute: ActivatedRoute,private service : ManagerService) { 
-    this.transactionId = JSON.parse(activatedRoute.snapshot.params["transactionId"]);
+    
     //console.log(this.transactionId);
-     this.service.generateOTP(this.transactionId).subscribe((result:any) => {console.log(result); this.otp = result;});
+    
   }
 
   ngOnInit(): void {
-
+    this.retriveData = localStorage.getItem('customer');
+    this.customer = JSON.parse(this.retriveData);
+    this.service.generateOTP(this.customer.transactionId).subscribe((result:any) => {console.log(result); this.otp = result;});
   }
 
   validate():any{}

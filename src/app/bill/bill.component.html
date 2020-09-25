@@ -14,14 +14,42 @@
   <div class="form-group">
     <label class="col-md-4 control-label" >Name :</label>  
       <div class="col-md-4"> 
-        {{output[0].custName}}
+        {{customer.custName}}
       </div>
   </div>
 
   <div class="form-group">
     <label class="col-md-4 control-label" >Phone :</label>  
     <div class="col-md-4"> 
-      {{output[0].custPhone}}
+      {{customer.custPhone}}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" >From :</label>  
+    <div class="col-md-4"> 
+      {{customer.residentArea}}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" >To :</label>  
+    <div class="col-md-4"> 
+      {{customer.destinationArea}}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label">Vehicle charges :</label>  
+    <div class="col-md-4">
+      {{output[0] | currency : 'INR'}}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label">Vehicle charges :</label>  
+    <div class="col-md-4">
+      {{ppk | currency : 'INR'}}
     </div>
   </div>
   

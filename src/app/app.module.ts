@@ -36,7 +36,7 @@ const appRoot: Routes = [   {path:'', component: HomePageComponent},
                             {path:'app-manager-homepage/app-reg-driver/:loginId', canActivate:[AuthGuard],component:RegDriverComponent},
                             {path:'app-manager-homepage/app-requests/:managerBranch', canActivate:[AuthGuard],component:RequestsComponent},
                             {path:'app-customer-registration', component:CustomerRegistrationComponent},
-                            {path:'app-customer-registration/app-bill/:Id', component:BillComponent},
+                            {path:'app-customer-registration/app-bill', component:BillComponent},
                             {path:'logout', component: HomePageComponent},
                             {path:'app-admin-login', component:AdminLoginComponent},
                             {path:'app-admin-login/app-admin-homepage', component:AdminHomepageComponent},
@@ -46,7 +46,7 @@ const appRoot: Routes = [   {path:'', component: HomePageComponent},
                             {path:'app-admin-login/app-admin-homepage/app-show-all-customers', component:ShowAllCustomersComponent},
                             {path:'app-admin-login/app-admin-homepage/app-advertisement', component:AdvertisementComponent},
                             {path:'app-manager-homepage/app-deallocate-drivers/:managerBranch',component:DeallocateDriversComponent},
-                            {path:'app-customer-registration/app-bill/app-otp-confirmation/:transactionId', component:OtpConfirmationComponent}
+                            {path:'app-customer-registration/app-bill/app-otp-confirmation', component:OtpConfirmationComponent}
 
                           ];
 

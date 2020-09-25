@@ -42,7 +42,8 @@ export class CustomerRegistrationComponent implements OnInit {
       this.customer.manager = null;
       this.customer.bill = 0;    
       await this.service.registerCustomer(this.customer).subscribe((result)=> { this.customer1 = result;
-        this.router.navigate(['app-customer-registration/app-bill',JSON.stringify(this.customer1.transactionId)]);    
+        localStorage.setItem('customer', JSON.stringify(this.customer1));
+        this.router.navigate(['app-customer-registration/app-bill']);//,JSON.stringify(this.customer1.transactionId)]);    
       });    
     }     
   }
