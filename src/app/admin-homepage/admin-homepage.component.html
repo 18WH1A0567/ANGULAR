@@ -1,0 +1,40 @@
+
+
+<div class="jumbotron text-center">
+     
+    <h1>MOVING MADE EASY!</h1>
+    <p>Welcome Admin</p>  
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <h2>
+            
+            <form (ngSubmit)="addManager()">
+                <button class = "btn btn-info btn-lg" style="width: 200px;" ><h1>Add manager</h1></button>
+            </form><br>
+            <form (ngSubmit)="getAllManagers()">
+                <button class = "btn btn-info btn-lg" style="width: 200px;"><h1>Manager details</h1></button>
+            </form> <br>
+            <form (ngSubmit)="getAllDrivers()">
+                <button class = "btn btn-info btn-lg" style="width: 200px;"><h1>Driver details</h1></button>
+              </form> <br>
+              <!--<form (ngSubmit)="addAds()">
+                <button class = "btn btn-info btn-lg" style="width: 200px;"><h1>Advertisement</h1></button>
+              </form> <br>-->
+            <form (ngSubmit)="seeAllRequests()">
+                <button class = "btn btn-info btn-lg" style="width: 200px;"><h1>See all requests</h1></button>
+            </form>    
+     
+      <br>
+      <button class = "btn btn-info btn-lg" (click)="logout()" style="width: 200px;"><h1>Logout</h1></button>
+      <!--<a routerLink="" class="list-group-item">Logout</a>-->
+  </h2>
+        </div>
+        <div class="media border p-3">
+          <img src="assets\images\packers.png" alt="Moving made easy" >
+        </div>
+      
+      
+    </div>
+  </div>

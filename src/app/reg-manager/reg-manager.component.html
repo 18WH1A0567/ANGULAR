@@ -1,0 +1,50 @@
+<div class="jumbotron text-center">
+     
+    <h1>MOVING MADE EASY!</h1>
+    <p>Add manager</p>  
+</div>
+
+<div class="row justify-content-center">
+   <!-- <div class="col-md-6">-->
+    <div class="card">
+        <header class="card-header">
+            <h3 class="card-title mt-2">Manager registration</h3>
+        </header>
+    <article class="card-body">
+        <form  #RegisterForm= "ngForm" (ngSubmit)="RegisterManager(RegisterForm)" style="text-align: center;">
+           <h4> <div class="col form-group">
+                
+                  <input type="text" name = "managerName" [(ngModel)] = 'manager.managerName' placeholder="Name" style="text-align: center;">
+            </div> <!-- form-group end.// -->
+            <div class="col form-group">
+                
+                  <input type="text" name = "managerPhone" [(ngModel)] = 'manager.managerPhone' placeholder="Phone" style="text-align: center;">
+            </div> <!-- form-group end.// -->
+            <div class="col form-group">
+                   
+                      <input type="text" name = "managerBranch" [(ngModel)] = 'manager.managerBranch' placeholder="Branch" style="text-align: center;">
+            </div>		       
+           <div class="col form-group">
+            
+              <input type="number" name = "managerSalary" [(ngModel)] = 'manager.managerSalary' placeholder="Salary" style="text-align: center;">
+           </div> 
+           <div class="col form-group">
+            
+              <input type="text" name = "loginId" [(ngModel)] = 'manager.loginId' placeholder="Login ID" style="text-align: center;">
+           </div>
+          <div class="col form-group">
+          
+            <input type="password" name = "password" [(ngModel)] = 'manager.password' placeholder="Password" style="text-align: center;">
+        </div>    
+        
+        <div style="text-align: center;">
+            <button class="btn btn-info btn-lg" (click)="RegisterManager(RegisterForm)"> Register  </button>
+        </div></h4>
+    </form>
+    </article>
+    </div>
+   <!-- </div>-->
+</div>
+
+
+

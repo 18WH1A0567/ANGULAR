@@ -1,0 +1,43 @@
+
+
+<div class="jumbotron text-center">
+     
+    <h1>MOVING MADE EASY!</h1>
+    <p>Welcome {{ manager.managerName }}</p>  
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <h2>
+          <form (ngSubmit)="seeAllRequests()">
+            <button class = "btn btn-info btn-lg" (click)="loginUser()"><h1>&nbsp;See all requests&nbsp;</h1></button>
+          </form>
+      
+      <br>
+  
+      <form (ngSubmit)="getAllDriversBranchwise()">
+        <button class = "btn btn-info btn-lg" (click)="loginUser()"><h1>&nbsp;&nbsp;&nbsp;Driver details&nbsp;&nbsp;&nbsp;&nbsp;</h1></button>
+      </form>
+  
+      <br>
+      <form (ngSubmit)="addDriver()">
+        <button class = "btn btn-info btn-lg" (click)="loginUser()"><h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add driver&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1></button>
+      </form>
+     
+      <br>
+      <form (ngSubmit)="changeDriverStatus()">
+        <button class = "btn btn-info btn-lg" (click)="loginUser()"><h1>Deallocate driver</h1></button>
+      </form>
+      <br>
+      <button class = "btn btn-info btn-lg" (click)="logout()"><h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logout&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1></button>
+      
+      
+  </h2>
+        </div>
+        <div class="media border p-3">
+          <img src="assets\images\packers.png" alt="Moving made easy" >
+        </div>
+      
+      
+    </div>
+  </div>
