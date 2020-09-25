@@ -34,7 +34,7 @@ export class OtpConfirmationComponent implements OnInit {
       alert("OTP did not match!")
     }
     else{
-      await this.service.confirmCustomer(this.transactionId, this.otp).subscribe((result:any)=>console.log(result));
+      await this.service.confirmCustomer(this.customer.transactionId, this.otp).subscribe((result:any)=>console.log(result));
       alert("You will be reached shortly by our manager!");
       this.router.navigate(['']);
     }

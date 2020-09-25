@@ -22,11 +22,12 @@ export class RegDriverComponent implements OnInit {
                    manager : ''
   }
                   
-   this.loginId = JSON.parse(activatedRoute.snapshot.params["loginId"]);
+   //this.loginId = JSON.parse(activatedRoute.snapshot.params["loginId"]);
   };
 
   ngOnInit(): void {
-    this.service.getMangerByManagerId(this.loginId).subscribe((result:any) => {this.manager = result;})
+    this.manager = JSON.parse(localStorage.getItem('manager'));
+    //this.service.getMangerByManagerId(this.loginId).subscribe((result:any) => {this.manager = result;})
   }
   RegisterDriver(RegisterForm:any):void{
 

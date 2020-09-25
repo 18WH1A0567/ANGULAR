@@ -31,9 +31,9 @@ import { AdvertisementComponent } from './advertisement/advertisement.component'
 const appRoot: Routes = [   {path:'', component: HomePageComponent},
                             {path:'app-home-page', component: HomePageComponent},
                             {path:'app-manager-login', component: ManagerLoginComponent},
-                            {path:'app-manager-homepage/:loginId', canActivate:[AuthGuard], component:ManagerHomepageComponent},//, data:{some_data : 'some value'}
+                            {path:'app-manager-homepage', canActivate:[AuthGuard], component:ManagerHomepageComponent},//, data:{some_data : 'some value'}
                             {path:'app-manager-homepage/app-show-drivers/:managerBranch', canActivate:[AuthGuard],component:ShowDriversComponent},
-                            {path:'app-manager-homepage/app-reg-driver/:loginId', canActivate:[AuthGuard],component:RegDriverComponent},
+                            {path:'app-manager-homepage/app-reg-driver', canActivate:[AuthGuard],component:RegDriverComponent},
                             {path:'app-manager-homepage/app-requests/:managerBranch', canActivate:[AuthGuard],component:RequestsComponent},
                             {path:'app-customer-registration', component:CustomerRegistrationComponent},
                             {path:'app-customer-registration/app-bill', component:BillComponent},

@@ -26,7 +26,6 @@ export class ManagerService {
 
   getManagerById(loginId : any , password : any){
     this.result = loginId + ' ' + password;
-    console.log(this.result);
     return this.httpClient.get('MovingMadeEasy/webapi/myresource/getManagerById/'+ this.result);
   }
 

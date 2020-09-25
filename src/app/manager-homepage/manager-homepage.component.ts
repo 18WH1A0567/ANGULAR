@@ -16,19 +16,19 @@ export class ManagerHomepageComponent implements OnInit {
   public loginId : any;
   
   constructor(private router: Router, private service : ManagerService, private activatedRoute: ActivatedRoute, private toastr: ToastrService) {
-    this.loginId = JSON.parse(activatedRoute.snapshot.params["loginId"]);
+    //this.loginId = JSON.parse(activatedRoute.snapshot.params["loginId"]);
   }  
 
   ngOnInit(): void {
-   // this.sub = this.router.data.subscribe(v => console.log(v));
-   this.service.getMangerByManagerId(this.loginId).subscribe((result:any) => {this.manager = result;})
-   //this.toastr.success('Login successful', 'Success!!');
+   
+   this.manager = JSON.parse(localStorage.getItem('manager'));
+   localStorage.setItem('manager', JSON.stringify(this.manager));
   }
 
   loginUser():void{ }
 
   addDriver():void{
-    this.router.navigate(['app-manager-homepage/app-reg-driver',JSON.stringify(this.loginId)]);     
+    this.router.navigate(['app-manager-homepage/app-reg-driver']);//,JSON.stringify(this.loginId)]);     
   }
 
   getAllDriversBranchwise():void{

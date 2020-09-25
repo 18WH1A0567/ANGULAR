@@ -27,7 +27,8 @@ export class ManagerLoginComponent implements OnInit {
       if(this.manager != null){
         this.service.setUserLoggedIn();      
         this.toastr.success("Login successful!", "Success");
-        this.router.navigate(['app-manager-homepage',JSON.stringify(this.loginId)]);
+        localStorage.setItem('manager', JSON.stringify(this.manager));
+        this.router.navigate(['app-manager-homepage']);//,JSON.stringify(this.loginId)]);
       } else{
         alert('Invalid credentials');    
       }
