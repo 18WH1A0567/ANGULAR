@@ -1,41 +1,51 @@
 <head>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-    
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
-    
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" />
 
-    </head>
-    
-    <div class="jumbotron text-center" color = "pink">
-     
-        <h1>MOVING MADE EASY!</h1>
-        <p>Welcome Manager</p>  
-      </div>
-    <div class ="container">
-    <form  #loginForm= "ngForm" class = "form-group" (ngSubmit)="validateUser(loginForm.value)"novalidate>
-        <div class = "input-group">
-            <span class = "input-group-addon"><i class = "glyphicon glyphicon-user"></i></span>
-        <input type = "text" class = "form-control" name="loginId" ngModel #loginId="ngModel" placeholder = "loginId" required minlength = "4"><br/>
-       </div>
-       <div class = "input-group">
-        <span class = "input-group-addon"><i class = "glyphicon glyphicon-lock"></i></span>
-        <input type = "password" class = "form-control" name="password" ngModel #password="ngModel" placeholder = "password"required><br/>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+</head>
+
+<div class="container">
+<hr>
+    <div class="jumbotron text-center">     
+        <h1>MOVING MADE EASY!</h1>    
+        <p>Welcome!</p>
     </div>
-        <button class = "btn btn-primary" [disabled] = "!loginForm.valid"  (click)="loginUser()">Login</button> 
-        <!--<a  (click)="loginUser()" routerLinkActive="active">Login</a>-->
-    </form>
-    
-    
-    
-    
-    <!--
-    <div class = "text-danger">
-        Please Enter<br>
-    <div *ngIf="loginForm.touched && loginId.errors?.required">Login Id</div>
-    <div *ngIf="loginForm.touched && password.errors?.required">Password</div>
-    </div>  
-    -->
+      <div class="row justify-content-center" ><!--</div>style="height: 100px;width:1200px;margin-left: 200px;;">-->
+        <div class="col-md-6">
+        <div class="card">
+            <header class="card-header">
+                <h3 class="card-title mt-2" style="text-align: center;">Login here!</h3>
+            </header>
+        <article class="card-body">
+            <form  #loginForm= "ngForm" class = "form-group" (ngSubmit)="validateUser(loginForm.value)"novalidate>
+        
+            <h3>
+            <div class="col form-group">
+                <label style="width:200px;">Login</label>   
+                <input type = "text"  name="loginId" ngModel #loginId="ngModel"required><br/>
+            </div> <!-- form-group end.// -->
+            <div class="col form-group">
+                <label style="width:200px;">Password</label>
+                <input type = "password"  name="password" ngModel #password="ngModel" required><br/>
+            </div> <!-- form-group end.// -->
+            <div class="form-group" style="text-align: center;">
+                <button class = "btn btn-primary btn-lg " [disabled] = "!loginForm.valid"  (click)="loginUser()" style="width: 100px;">Login</button>
+            </div> <!-- form-group// -->      
+        </h3>  
+        </form>
+        </article> <!-- card-body end .// -->
+        
+        </div> <!-- card.// -->
+        </div> <!-- col.//-->
+        <div class="col-md-6">
+            <img src="assets\images\cust_reg.png" alt="COVID-19 guidelines" style="width:400px;height:500px;">
+        </div>
+        
+        </div>
+        </div>
