@@ -47,12 +47,12 @@ export class ShowDriversComponent implements OnInit {
       this.drivers.splice(j,1);
       this.service.deleteDriver(this.driver).subscribe((result:any) => console.log(result));
       this.toastr.success("Driver deleted!", "Success");
-      this.vehicleId = '';
 
     }
     else{
       this.toastr.error("No proper ID was selected!");
     }
+    this.vehicleId = '';
     
     
   }

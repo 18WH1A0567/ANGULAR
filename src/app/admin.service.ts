@@ -49,4 +49,12 @@ export class AdminService {
     return this.httpClient.post(endpoint,formData);
    // return this.httpClient.post('MovingMadeEasy/webapi/myresource/addAds', ads);
   }
+
+  deleteDriver(driver:any){
+    return this.httpClient.post('MovingMadeEasy/webapi/myresource/deleteDriver' , driver);
+  }
+
+  deleteManager(manager:any){
+    return this.httpClient.post('MovingMadeEasy/webapi/myresource/deleteManager',manager);
+  }
 }
