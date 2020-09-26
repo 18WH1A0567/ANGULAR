@@ -84,6 +84,17 @@ export class ManagerService {
     return this.httpClient.post('MovingMadeEasy/webapi/myresource/confirmCustomer', customer);
   }
 
+  rejectCustomer(customer:any, message:any){
+    const formData : FormData = new FormData();
+    formData.append('customer',customer.transactionId);
+    formData.append('message',message);
+    return this.httpClient.post('MovingMadeEasy/webapi/myresource/rejectCustomer' ,formData);
+  }
+
+  deleteDriver(driver:any){
+    return this.httpClient.post('MovingMadeEasy/webapi/myresource/deleteDriver' , driver);
+  }
+
   changeDriverStatus(driver: any){
     return this.httpClient.post('MovingMadeEasy/webapi/myresource/changeDriverStatus' , driver);
   }

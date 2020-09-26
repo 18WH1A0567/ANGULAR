@@ -7,6 +7,7 @@
     
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     </head>
 
     <div class="modal fade" id="allocate">
@@ -21,6 +22,23 @@
               </div>
               <div class="modal-footer">
                 <button class="btn btn-primary btn-sm" (click)="onClickMe(id)" data-dismiss="modal">Allocate</button>
+               </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="reject">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <span class="close" data-dismiss="modal">&times;</span>
+                  <h4 class="modal-title">Reject customer</h4>
+              </div>
+              <div class="modal-body">
+                Enter Message: <input type="text" name="message" [(ngModel)]="message">
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-primary btn-sm" (click)="onClickMeReject()" data-dismiss="modal">Reject</button>
                </div>
           </div>
       </div>
@@ -47,6 +65,7 @@
               <th style="text-align: center;">Bill</th>
               <th style="text-align: center;">Requirements</th>
               <th style="text-align: center;">Allocate driver</th>
+              <th style="text-align: center;">Reject customer</th>
               </tr>
           </thead>
           <tr *ngFor="let customer of customers;; let i = index">
@@ -61,6 +80,7 @@
             <td>{{customer.bill | currency : 'INR'}}</td>
             <td>{{customer.requirements }}</td>
             <td><button (click)="showEditPopup(customer)"  class = "glyphicon glyphicon-pencil" data-toggle="modal" data-target="#allocate"></button></td>
+            <td><button (click)="showRejectPopup(customer)"  class = "glyphicon glyphicon-remove" data-toggle="modal" data-target="#reject"></button></td>
           </tr>
         </table>
         <p style="text-align: left;">Driver details</p>

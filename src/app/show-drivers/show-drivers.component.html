@@ -8,6 +8,23 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
     </head>
+
+    <div class="modal fade" id="delete">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <span class="close" data-dismiss="modal">&times;</span>
+                  <h4 class="modal-title">Delete driver</h4>
+              </div>
+              <div class="modal-body">
+                Enter Vehicle ID: <input type="number" name="vehicleId" [(ngModel)]="vehicleId">
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-primary btn-sm" (click)="onClickMe()" data-dismiss="modal">Delete</button>
+               </div>
+          </div>
+      </div>
+    </div>
   
     <div class="jumbotron text-center" color = "pink">
      
@@ -27,6 +44,7 @@
                 <th style="text-align: center;">Vehicle Id</th>
                 <th style="text-align: center;">Vehicle Type</th>
                 <th style="text-align: center;">Vehicle charges</th>
+                <th style="text-align: center;">Delete</th>
                 <!--<th style="text-align: center;">Manager Id</th>-->
               </tr>
           </thead>
@@ -39,9 +57,8 @@
             <td>{{driver.vehicleId }}</td>
             <td>{{driver.vehicleType }}</td>
             <td>{{driver.vehicleCharges | currency : 'INR'}}</td>
-            <!--<td>{{driver.managerId }}</td>-->
-           <!-- <td><button (click)="deleteEmp(employee)"  class = "glyphicon glyphicon-trash"></button></td>
-            <td><button (click)="showEditPopup(employee)" class="glyphicon glyphicon-pencil"></button></td>-->
+            <td><button (click)="deleteEmp(driver)"  class = "glyphicon glyphicon-trash"  data-toggle="modal" data-target="#delete"></button></td>
+            
           </tr>
         </table>
       </div>

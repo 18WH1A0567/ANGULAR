@@ -46,8 +46,9 @@ const appRoot: Routes = [   {path:'', component: HomePageComponent},
                             {path:'app-admin-login/app-admin-homepage/app-show-all-customers', component:ShowAllCustomersComponent},
                             {path:'app-admin-login/app-admin-homepage/app-advertisement', component:AdvertisementComponent},
                             {path:'app-manager-homepage/app-deallocate-drivers',component:DeallocateDriversComponent},
-                            {path:'app-customer-registration/app-bill/app-otp-confirmation', component:OtpConfirmationComponent}
-
+                            {path:'app-customer-registration/app-bill/app-otp-confirmation', component:OtpConfirmationComponent},
+                            {path:'app-requests', canActivate:[AuthGuard],component:RequestsComponent},
+                            {path:'app-show-drivers', canActivate:[AuthGuard],component:ShowDriversComponent}
                           ];
 
 @NgModule({

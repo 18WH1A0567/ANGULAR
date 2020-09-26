@@ -19,6 +19,7 @@ export class RequestsComponent implements OnInit {
   public id : any;
   public temp : any;
   public manager : any;
+  public message:any;
 
   constructor(private router: Router,private service : ManagerService, private activatedRoute: ActivatedRoute, private toastr: ToastrService) {  
    
@@ -38,9 +39,38 @@ export class RequestsComponent implements OnInit {
 
   onClickMe(id:any){
     this.temp.manager = this.manager;
+    var i = this.customers.indexOf(this.temp);
+    this.customers.splice(i,1);
+    for (let index = 0; index < this.drivers.length; index++) {
+      if (this.drivers[index].vehicleId == id) {
+        var j = index;
+        break;
+        
+      };      
+    }
+    console.log(j);
+    this.drivers.splice(j,1);
     this.service.allocate(id, this.temp).subscribe((result:any) => console.log(result));//
     this.toastr.success("Driver allocated!", "Success");
+    this.id = '';
     
+  }
+
+  showRejectPopup(customer: any) {
+    console.log("Hello");
+    this.temp = customer;
+    jQuery('#reject').modal('show');
+  }
+
+  onClickMeReject(){
+    console.log(this.message);
+    var i = this.customers.indexOf(this.temp);
+    this.customers.splice(i,1);
+    this.toastr.success("Customer request rejected!", "Success");
+    this.service.rejectCustomer(this.temp, this.message).subscribe((res:any)=>{console.log("Done");
+    this.message = '';
+    });
+
   }
 
 }
