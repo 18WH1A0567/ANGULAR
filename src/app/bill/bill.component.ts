@@ -27,7 +27,7 @@ export class BillComponent implements OnInit {
     console.log(this.customer);
     this.service.getCustomer(this.customer.transactionId).subscribe((result:any) => {this.output = result;
       this.output[0] = this.output[0] | 0;
-      this.customer.bill = this.output[0];
+      this.customer.bill = this.output[1].total;
     });
    
     

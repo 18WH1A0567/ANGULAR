@@ -70,8 +70,7 @@ export class ManagerService {
 
   allocate(did: any, customer : any){
     const formData : FormData = new FormData();
-    var temp = JSON.stringify(customer);
-    formData.append('customer',temp);
+    formData.append('customer',customer.transactionId);
     formData.append('driver',did);
     return this.httpClient.post('MovingMadeEasy/webapi/myresource/allocate' ,formData);
   }

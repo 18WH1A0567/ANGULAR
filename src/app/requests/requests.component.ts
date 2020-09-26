@@ -21,12 +21,7 @@ export class RequestsComponent implements OnInit {
   public manager : any;
 
   constructor(private router: Router,private service : ManagerService, private activatedRoute: ActivatedRoute, private toastr: ToastrService) {  
-    this.temp = { transactionId:'', bill:'', custName:'', custPhone:'',
-                  date:'', destinationArea:'',destinationState:'', requirements:'',
-                  residentArea:'',residentState:'',vehicleType:'',email:'',otp:'',
-                  manager : { loginId: '', managerBranch:'', managerId:'', managerName:'',
-                  managerPhone:'',managerSalary:'', password:''}
-                }
+   
   }
 
   ngOnInit(): void {
@@ -43,8 +38,7 @@ export class RequestsComponent implements OnInit {
 
   onClickMe(id:any){
     this.temp.manager = this.manager;
-    console.log(this.temp);
-    this.service.allocate(id, this.temp).subscribe((result:any) => console.log(result));
+    this.service.allocate(id, this.temp).subscribe((result:any) => console.log(result));//
     this.toastr.success("Driver allocated!", "Success");
     
   }
