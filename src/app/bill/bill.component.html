@@ -40,14 +40,14 @@
   </div>
 
   <div class="form-group">
-    <label class="col-md-4 control-label">Vehicle charges :</label>  
+    <label class="col-md-4 control-label">Distance :</label>  
     <div class="col-md-4">
-      {{output[0] | currency : 'INR'}}
+      {{output[0] }} km
     </div>
   </div>
 
   <div class="form-group">
-    <label class="col-md-4 control-label">Vehicle charges :</label>  
+    <label class="col-md-4 control-label">Price per km :</label>  
     <div class="col-md-4">
       {{ppk | currency : 'INR'}}
     </div>
@@ -88,25 +88,7 @@
     </div>
   </div>
 
- <!-- <button type="button"  class="btn btn-danger " data-toggle="modal" data-target="#myModal">Reject</button>&nbsp;&nbsp;&nbsp;&nbsp;
-
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Confirmation </h4>
-        
-        <div class="modal-body">
-          <p>Are you sure about cancelling?</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal" routerLink = ''>Continue</button>
-          <button type="button" class="btn btn-success" data-dismiss="modal">No,wait</button>
-        </div>
-      </div>
-    </div>
-  </div>-->
-
+ 
   <button type="button"  class="btn btn-success " data-toggle="modal" data-target="#myModal1">Continue</button>&nbsp;&nbsp;&nbsp;&nbsp;
 
   <div class="modal fade" id="myModal1" role="dialog">
@@ -138,21 +120,3 @@
 
 
 
-
-<!--
-
-  <div class="modal fade" id = "myModal2" role = "dialog">
-            <div class="modal-dialog">
-              <div class="modal-content">      
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Thank you customer! </h4>
-                <div class="modal-body">
-                  <p>Thank you for chosing us. Our manager will be reaching you shortly with a Confirmation mail.We wish to serve you again.</p>
-                </div>
-                <div class = "modal-footer">
-                  <button type="button" class="btn btn-success" data-dismiss="modal" routerLink = ''>Done</button>
-                </div>
-              </div>
-            </div>
-          </div> 
--->

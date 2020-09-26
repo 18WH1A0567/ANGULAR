@@ -68,18 +68,21 @@ export class ManagerService {
     return this.httpClient.get('MovingMadeEasy/webapi/myresource/generateBill/' + customer);
   }
 
-  allocate(did: any, tid : any){
-    this.result = did + ' ' + tid;
-    return this.httpClient.get('MovingMadeEasy/webapi/myresource/allocate/' + this.result);
+  allocate(did: any, customer : any){
+    const formData : FormData = new FormData();
+    var temp = JSON.stringify(customer);
+    formData.append('customer',temp);
+    formData.append('driver',did);
+    return this.httpClient.post('MovingMadeEasy/webapi/myresource/allocate' ,formData);
   }
 
   generateOTP(transactionId:any){
     return this.httpClient.get('MovingMadeEasy/webapi/myresource/generateOTP/' + transactionId);
   }
 
-  confirmCustomer(transactionId:any,otp:any){
-    this.result = String(transactionId) + ' ' + String(otp);
-    return this.httpClient.get('MovingMadeEasy/webapi/myresource/confirmCustomer/' + this.result);
+  confirmCustomer( customer:any){
+    //this.result = String(transactionId) + ' ' + String(otp);
+    return this.httpClient.post('MovingMadeEasy/webapi/myresource/confirmCustomer', customer);
   }
 
   changeDriverStatus(driver: any){

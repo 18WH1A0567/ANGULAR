@@ -18,16 +18,21 @@ export class RequestsComponent implements OnInit {
   public did:any;
   public id : any;
   public temp : any;
+  public manager : any;
 
-  constructor(private router: Router,private service : ManagerService, private activatedRoute: ActivatedRoute, private toastr: ToastrService) { 
-    this.managerBranch = JSON.parse(activatedRoute.snapshot.params["managerBranch"]);
-
+  constructor(private router: Router,private service : ManagerService, private activatedRoute: ActivatedRoute, private toastr: ToastrService) {  
+    this.temp = { transactionId:'', bill:'', custName:'', custPhone:'',
+                  date:'', destinationArea:'',destinationState:'', requirements:'',
+                  residentArea:'',residentState:'',vehicleType:'',email:'',otp:'',
+                  manager : { loginId: '', managerBranch:'', managerId:'', managerName:'',
+                  managerPhone:'',managerSalary:'', password:''}
+                }
   }
 
   ngOnInit(): void {
-    console.log("in see all req")
-    this.service.seeAllRequests(this.managerBranch).subscribe((result:any) => {this.customers = result;})
-    this.service.getAllDriversToAllocate(this.managerBranch).subscribe((result:any) => {this.drivers = result});
+    this.manager = JSON.parse(localStorage.getItem('manager'));
+    this.service.seeAllRequests(this.manager.managerBranch).subscribe((result:any) => {this.customers = result;})
+    this.service.getAllDriversToAllocate(this.manager.managerBranch).subscribe((result:any) => {this.drivers = result});
   }
 
   showEditPopup(customer: any) {
@@ -37,7 +42,9 @@ export class RequestsComponent implements OnInit {
   }
 
   onClickMe(id:any){
-    this.service.allocate(id, this.temp.transactionId).subscribe((result:any) => console.log(result));
+    this.temp.manager = this.manager;
+    console.log(this.temp);
+    this.service.allocate(id, this.temp).subscribe((result:any) => console.log(result));
     this.toastr.success("Driver allocated!", "Success");
     
   }

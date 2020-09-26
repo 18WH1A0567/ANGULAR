@@ -24,6 +24,7 @@ export class OtpConfirmationComponent implements OnInit {
   ngOnInit(): void {
     this.retriveData = localStorage.getItem('customer');
     this.customer = JSON.parse(this.retriveData);
+    console.log(this.customer);
     this.service.generateOTP(this.customer.transactionId).subscribe((result:any) => {console.log(result); this.otp = result;});
   }
 
@@ -34,7 +35,8 @@ export class OtpConfirmationComponent implements OnInit {
       alert("OTP did not match!")
     }
     else{
-      await this.service.confirmCustomer(this.customer.transactionId, this.otp).subscribe((result:any)=>console.log(result));
+      this.customer.otp = this.otp;
+      await this.service.confirmCustomer(this.customer).subscribe((result:any)=>console.log(result));
       alert("You will be reached shortly by our manager!");
       this.router.navigate(['']);
     }

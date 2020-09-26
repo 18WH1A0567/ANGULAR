@@ -32,16 +32,16 @@ export class ManagerHomepageComponent implements OnInit {
   }
 
   getAllDriversBranchwise():void{
-    this.router.navigate(['app-manager-homepage/app-show-drivers',JSON.stringify(this.manager.managerBranch)]);     
+    this.router.navigate(['app-manager-homepage/app-show-drivers']);//,JSON.stringify(this.manager.managerBranch)]);     
 
   }
 
   seeAllRequests():void{
-    this.router.navigate(['app-manager-homepage/app-requests',JSON.stringify(this.manager.managerBranch)]);     
+    this.router.navigate(['app-manager-homepage/app-requests']);//,JSON.stringify(this.manager.managerBranch)]);     
   }
 
   changeDriverStatus():void{
-    this.router.navigate(['app-manager-homepage/app-deallocate-drivers',JSON.stringify(this.manager.managerBranch)]);     
+    this.router.navigate(['app-manager-homepage/app-deallocate-drivers']);//,JSON.stringify(this.manager.managerBranch)]);     
 
   }
 

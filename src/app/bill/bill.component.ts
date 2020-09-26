@@ -26,13 +26,16 @@ export class BillComponent implements OnInit {
     this.customer = JSON.parse(this.retriveData);
     console.log(this.customer);
     this.service.getCustomer(this.customer.transactionId).subscribe((result:any) => {this.output = result;
-      this.output[0] = this.output[0] | 0;});
+      this.output[0] = this.output[0] | 0;
+      this.customer.bill = this.output[0];
+    });
    
     
     //console.log(this.customer)
   }
 
   confirm():any{
+    
     localStorage.setItem('customer', JSON.stringify(this.customer));
     this.router.navigate(['app-customer-registration/app-bill/app-otp-confirmation']);
 

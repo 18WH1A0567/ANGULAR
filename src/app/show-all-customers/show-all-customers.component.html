@@ -30,7 +30,7 @@
                 <th style="text-align: center;">Destination area</th>
                 <th style="text-align: center;">Requirements</th>
                 <th style="text-align: center;">Bill</th>
-                <th style="text-align: center;">Generated OTP</th>
+                <th style="text-align: center;">Looking for service?</th>
 
               </tr>
           </thead>
@@ -46,7 +46,8 @@
             <td>{{customer.destinationArea}}</td>
             <td>{{customer.requirements}}</td>
             <td>{{customer.bill | currency : 'INR'}}</td>
-            <td>{{customer.otp}}</td>
+            <td *ngIf='customer.otp == 0'>No</td>
+            <td *ngIf='customer.otp > 0'>Yes</td>
             
           </tr>
         </table>

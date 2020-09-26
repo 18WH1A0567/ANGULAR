@@ -32,9 +32,9 @@ const appRoot: Routes = [   {path:'', component: HomePageComponent},
                             {path:'app-home-page', component: HomePageComponent},
                             {path:'app-manager-login', component: ManagerLoginComponent},
                             {path:'app-manager-homepage', canActivate:[AuthGuard], component:ManagerHomepageComponent},//, data:{some_data : 'some value'}
-                            {path:'app-manager-homepage/app-show-drivers/:managerBranch', canActivate:[AuthGuard],component:ShowDriversComponent},
+                            {path:'app-manager-homepage/app-show-drivers', canActivate:[AuthGuard],component:ShowDriversComponent},
                             {path:'app-manager-homepage/app-reg-driver', canActivate:[AuthGuard],component:RegDriverComponent},
-                            {path:'app-manager-homepage/app-requests/:managerBranch', canActivate:[AuthGuard],component:RequestsComponent},
+                            {path:'app-manager-homepage/app-requests', canActivate:[AuthGuard],component:RequestsComponent},
                             {path:'app-customer-registration', component:CustomerRegistrationComponent},
                             {path:'app-customer-registration/app-bill', component:BillComponent},
                             {path:'logout', component: HomePageComponent},
@@ -45,7 +45,7 @@ const appRoot: Routes = [   {path:'', component: HomePageComponent},
                             {path:'app-admin-login/app-admin-homepage/app-show-all-drivers', component:ShowAllDriversComponent},
                             {path:'app-admin-login/app-admin-homepage/app-show-all-customers', component:ShowAllCustomersComponent},
                             {path:'app-admin-login/app-admin-homepage/app-advertisement', component:AdvertisementComponent},
-                            {path:'app-manager-homepage/app-deallocate-drivers/:managerBranch',component:DeallocateDriversComponent},
+                            {path:'app-manager-homepage/app-deallocate-drivers',component:DeallocateDriversComponent},
                             {path:'app-customer-registration/app-bill/app-otp-confirmation', component:OtpConfirmationComponent}
 
                           ];

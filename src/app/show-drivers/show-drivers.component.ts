@@ -15,11 +15,12 @@ export class ShowDriversComponent implements OnInit {
   public manager: any;
 
   constructor(private service : ManagerService, private activatedRoute: ActivatedRoute) {
-    this.managerBranch = JSON.parse(activatedRoute.snapshot.params["managerBranch"]);
+    //this.managerBranch = JSON.parse(activatedRoute.snapshot.params["managerBranch"]);
    }
 
   ngOnInit(): void {
-    this.service.getAllDriversBranchwise(this.managerBranch).subscribe((result:any) => {this.drivers = result;console.log(result)})
+    this.manager = JSON.parse(localStorage.getItem('manager'));
+    this.service.getAllDriversBranchwise(this.manager.managerBranch).subscribe((result:any) => {this.drivers = result;console.log(result)})
   }
 
 }

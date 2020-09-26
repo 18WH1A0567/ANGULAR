@@ -14,13 +14,14 @@ export class DeallocateDriversComponent implements OnInit {
 
   public managerBranch: any;
   public drivers : any;
+  public manager : any;
 
-  constructor(private service : ManagerService, private activatedRoute: ActivatedRoute, private toastr: ToastrService) {
-    this.managerBranch = JSON.parse(activatedRoute.snapshot.params["managerBranch"]);
-   }
+  constructor(private service : ManagerService, private activatedRoute: ActivatedRoute, private toastr: ToastrService) {}
+   
 
   ngOnInit(): void {
-    this.service.getAllDriversToDeallocate(this.managerBranch).subscribe((result:any) => {this.drivers = result});
+    this.manager = JSON.parse(localStorage.getItem('manager'));
+    this.service.getAllDriversToDeallocate(this.manager.managerBranch).subscribe((result:any) => {this.drivers = result});
   }
 
   async deallocate(driver:any){
