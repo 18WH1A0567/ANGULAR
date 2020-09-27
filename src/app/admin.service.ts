@@ -35,8 +35,12 @@ export class AdminService {
     return this.httpClient.get('MovingMadeEasy/webapi/myresource/getAllDrivers');
   }
 
-  getAllCustomers(){
-    return this.httpClient.get('MovingMadeEasy/webapi/myresource/getAllCustomers');
+  getAllCustomersByAdminToAllocate(){
+    return this.httpClient.get('MovingMadeEasy/webapi/myresource/getAllCustomersByAdminToAllocate');
+  }
+
+  getAllDriversToAllocate(){
+    return this.httpClient.get('MovingMadeEasy/webapi/myresource/getAllDriversToAllocate');
   }
   
   addAds(ads:any, fileToUpload:File){
@@ -57,4 +61,19 @@ export class AdminService {
   deleteManager(manager:any){
     return this.httpClient.post('MovingMadeEasy/webapi/myresource/deleteManager',manager);
   }
+
+  allocate(did: any, customer : any){
+    const formData : FormData = new FormData();
+    formData.append('customer',customer.transactionId);
+    formData.append('driver',did);
+    return this.httpClient.post('MovingMadeEasy/webapi/myresource/allocate' ,formData);
+  }
+
+  rejectCustomer(customer:any, message:any){
+    const formData : FormData = new FormData();
+    formData.append('customer',customer.transactionId);
+    formData.append('message',message);
+    return this.httpClient.post('MovingMadeEasy/webapi/myresource/rejectCustomer' ,formData);
+  }
+
 }
