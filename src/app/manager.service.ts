@@ -99,5 +99,13 @@ export class ManagerService {
     return this.httpClient.post('MovingMadeEasy/webapi/myresource/changeDriverStatus' , driver);
   }
 
+  updateCustomer(customer: any){
+    return this.httpClient.post('MovingMadeEasy/webapi/myresource/updateCustomer' , customer);
+  }
+
+  updateDriver(driver:any){
+    return this.httpClient.post('MovingMadeEasy/webapi/myresource/updateDriver', driver);
+  }
+
 
 }

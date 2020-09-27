@@ -50,8 +50,14 @@ export class RequestsComponent implements OnInit {
     }
     console.log(j);
     this.drivers.splice(j,1);
-    this.service.allocate(id, this.temp).subscribe((result:any) => console.log(result));//
+    this.temp.manager = this.manager;
+    /*this.service.updateCustomer(this.temp).subscribe((res:any)=>{console.log(res);
+      this.service.updateDriver(id).subscribe((resi:any) => {console.log(resi)});
+      //this.service.allocate(id, this.temp).subscribe((result:any) => console.log(result));
+    });*/
+    
     this.toastr.success("Driver allocated!", "Success");
+    this.service.allocate(id, this.temp).subscribe((result:any) => console.log(result));
     this.id = '';
     
   }

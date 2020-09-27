@@ -26,6 +26,9 @@ export class DeallocateDriversComponent implements OnInit {
 
   async deallocate(driver:any){
     console.log(driver);
+    var j = this.drivers.indexOf(driver);
+    console.log(j);
+    this.drivers.splice(j,1);
     await this.service.changeDriverStatus(driver).subscribe((result:any) => {this.toastr.success("Deallocation successful", "Success")});
     
   }
