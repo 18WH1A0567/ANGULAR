@@ -47,7 +47,7 @@ export class ShowAllCustomersComponent implements OnInit {
     }
     console.log(j);
     this.drivers.splice(j,1);
-    //this.service.allocate(id, this.temp).subscribe((result:any) => console.log(result));//
+    this.service.allocate(id, this.temp).subscribe((result:any) => console.log(result));//
     this.toastr.success("Driver allocated!", "Success");
     this.id = '';
     

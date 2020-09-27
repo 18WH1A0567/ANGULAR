@@ -34,6 +34,10 @@ export class AdminHomepageComponent implements OnInit {
     this.router.navigate(['app-admin-login/app-admin-homepage/app-show-all-customers']);
   }
 
+  seeAllRecords():any{
+    this.router.navigate(['app-admin-login/app-admin-homepage/app-all-records']);
+  }
+
   addAds():any{
     this.router.navigate(['app-admin-login/app-admin-homepage/app-advertisement']);
   }

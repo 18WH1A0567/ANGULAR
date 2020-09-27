@@ -35,6 +35,10 @@ export class AdminService {
     return this.httpClient.get('MovingMadeEasy/webapi/myresource/getAllDrivers');
   }
 
+  getAllCustomers(){
+    return this.httpClient.get('MovingMadeEasy/webapi/myresource/getAllCustomers');
+  }
+
   getAllCustomersByAdminToAllocate(){
     return this.httpClient.get('MovingMadeEasy/webapi/myresource/getAllCustomersByAdminToAllocate');
   }

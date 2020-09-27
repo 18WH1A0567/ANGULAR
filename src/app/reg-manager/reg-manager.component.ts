@@ -25,6 +25,12 @@ export class RegManagerComponent implements OnInit {
     await this.service.registerManager(this.manager).subscribe((result:any)=>{console.log("Manger added!");
       this.toastr.success("Manager registered!","Success");
     });
+    this.manager.loginId='';
+    this.manager.password='';
+    this.manager.managerBranch='';
+    this.manager.managerName='';
+    this.manager.managerSalary='';
+    this.manager.managerPhone='';
     
   }
 

@@ -27,6 +27,7 @@ import { OtpConfirmationComponent } from './otp-confirmation/otp-confirmation.co
 import { DeallocateDriversComponent } from './deallocate-drivers/deallocate-drivers.component'
 import { AuthGuard } from './auth.guard';
 import { AdvertisementComponent } from './advertisement/advertisement.component';
+import { AllRecordsComponent } from './all-records/all-records.component';
 
 const appRoot: Routes = [   {path:'', component: HomePageComponent},
                             {path:'app-home-page', component: HomePageComponent},
@@ -48,7 +49,8 @@ const appRoot: Routes = [   {path:'', component: HomePageComponent},
                             {path:'app-manager-homepage/app-deallocate-drivers',component:DeallocateDriversComponent},
                             {path:'app-customer-registration/app-bill/app-otp-confirmation', component:OtpConfirmationComponent},
                             {path:'app-requests', canActivate:[AuthGuard],component:RequestsComponent},
-                            {path:'app-show-drivers', canActivate:[AuthGuard],component:ShowDriversComponent}
+                            {path:'app-show-drivers', canActivate:[AuthGuard],component:ShowDriversComponent},
+                            {path:'app-admin-login/app-admin-homepage/app-all-records', component: AllRecordsComponent}
                           ];
 
 @NgModule({
@@ -73,7 +75,8 @@ const appRoot: Routes = [   {path:'', component: HomePageComponent},
     ShowAllCustomersComponent,
     OtpConfirmationComponent,
     DeallocateDriversComponent,
-    AdvertisementComponent
+    AdvertisementComponent,
+    AllRecordsComponent
   ],
   imports: [
     BrowserModule,
