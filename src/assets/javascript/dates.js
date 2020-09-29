@@ -18,9 +18,7 @@ function validateForm() {
     var res = email.split("@");
     var domain = res[1].split(".");
     
-    if (reg.test(email) === false || (res[0].length < 3) || (res[0][0] === '_'))
-        {
-            
+    if (reg.test(email) === false || (res[0].length < 3) || (res[0][0] === '_')){            
             alert('Invalid Email Address');
             return false;
         }
