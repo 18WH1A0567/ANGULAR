@@ -1,20 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { ManagerService } from '../manager.service';
 import {ActivatedRoute } from "@angular/router";
 import {ToastrService} from 'ngx-toastr';
+import {AdminService} from '../admin.service';
 
 @Component({
-  selector: 'app-reg-driver',
-  templateUrl: './reg-driver.component.html',
+  selector: 'app-reg-driver-admin',
+  templateUrl: './reg-driver-admin.component.html',
   styles: [
   ]
 })
-export class RegDriverComponent implements OnInit {
+export class RegDriverAdminComponent implements OnInit {
+
   public driver:any;
   public loginId:any;
   public manager : any;
 
-  constructor(private service : ManagerService,  private activatedRoute: ActivatedRoute,  private toastr: ToastrService) {
+  constructor(private service : AdminService,  private activatedRoute: ActivatedRoute,  private toastr: ToastrService) {
     
     this.driver = {driverBranch:'', driverName: '', driverPhone: '', 
                    driverStatus : null ,salary: 5000, vehicleCharges: '',
@@ -26,8 +27,8 @@ export class RegDriverComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.manager = JSON.parse(localStorage.getItem('manager'));
-    //this.service.getMangerByManagerId(this.loginId).subscribe((result:any) => {this.manager = result;})
+   
+    this.service.getMangerByManagerId("admin").subscribe((result:any) => {this.manager = result;})
   }
   RegisterDriver(RegisterForm:any):void{
 

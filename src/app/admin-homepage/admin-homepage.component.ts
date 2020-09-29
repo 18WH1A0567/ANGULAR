@@ -42,6 +42,11 @@ export class AdminHomepageComponent implements OnInit {
     this.router.navigate(['app-admin-login/app-admin-homepage/app-advertisement']);
   }
 
+  regDriver():any{
+    alert("Hello");
+    this.router.navigate(['app-admin-login/app-admin-homepage/app-reg-driver-admin']);
+  }
+
   logout():void{
     this.service.setUserLoggedOut();
       this.router.navigate(['/']);

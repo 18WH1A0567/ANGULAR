@@ -68,10 +68,13 @@ export class ManagerService {
     return this.httpClient.get('MovingMadeEasy/webapi/myresource/generateBill/' + customer);
   }
 
-  allocate(did: any, customer : any){
+  allocate(driver: any, customer : any, manager:any){
     const formData : FormData = new FormData();
-    formData.append('customer',customer.transactionId);
-    formData.append('driver',did);
+    formData.append('customer',JSON.stringify(customer));
+    formData.append('driverstr',JSON.stringify(driver));
+    formData.append('managerstr', JSON.stringify(manager));
+    console.log("Form data");
+    console.log(formData);
     return this.httpClient.post('MovingMadeEasy/webapi/myresource/allocate' ,formData);
   }
 

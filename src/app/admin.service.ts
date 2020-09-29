@@ -27,6 +27,14 @@ export class AdminService {
     return this.httpClient.post('MovingMadeEasy/webapi/myresource/registerManager', manager);
   }
 
+  registerDriver(driver: any){
+    return this.httpClient.post('MovingMadeEasy/webapi/myresource/registerDriver', driver);
+  }
+
+  getMangerByManagerId(loginId : any){
+    return this.httpClient.get('MovingMadeEasy/webapi/myresource/getMangerByManagerId/'+ loginId);
+  }
+
   getAllManager(){
     return this.httpClient.get('MovingMadeEasy/webapi/myresource/getAllManagers');
   }
@@ -66,11 +74,14 @@ export class AdminService {
     return this.httpClient.post('MovingMadeEasy/webapi/myresource/deleteManager',manager);
   }
 
-  allocate(did: any, customer : any){
+  allocate(driver: any, customer : any){
     const formData : FormData = new FormData();
-    formData.append('customer',customer.transactionId);
-    formData.append('driver',did);
-    return this.httpClient.post('MovingMadeEasy/webapi/myresource/allocate' ,formData);
+    formData.append('customer',JSON.stringify(customer));
+    formData.append('driverstr',JSON.stringify(driver));
+    
+    console.log("Form data");
+    console.log(formData);
+    return this.httpClient.post('MovingMadeEasy/webapi/myresource/allocateByAdmin' ,formData);
   }
 
   rejectCustomer(customer:any, message:any){

@@ -1,24 +1,34 @@
-
 function blockDates(){
   var today = new Date().toISOString().split('T')[0];
   var trial = new Date(today);
+  var end = new Date(today);
 trial.setDate(trial.getDate() + 3);
+end.setDate(end.getDate() + 100);
 var today1 = new Date(trial).toISOString().split('T')[0];
+var end1 = new Date(end).toISOString().split('T')[0];
 document.getElementsByName("setTodaysDate")[0].setAttribute('min', today1);
- 
+document.getElementsByName("setTodaysDate")[0].setAttribute('max', end1); 
 }
 function validateForm() {
   
     var custName = document.forms["myForm"]["custName"].value;
     var custPhone = document.forms["myForm"]["custPhone"].value;
     var email = document.forms["myForm"]["email"].value;
-    /*var emailfilter=/^\w+[\+\.\w-]@([\w-]+\.)\w+[\w-]*\.([a-z]{2,4}|\d+)$/i
-    var b=emailfilter.test(email);
-    if(b==false)
-    {
-      alert("Please Enter a valid Mail ID");
-      return false;
-    }*/
+    var reg = /^(?:[\w\!\#\$\%\&\'\\+\-\/\=\?\^\`\{\|\}\~]+\.)[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+@(?:(?:(?:[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!\.)){0,61}[a-zA-Z0-9]?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!$)){0,61}[a-zA-Z0-9]?)|(?:\[(?:(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\.){3}(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\]))$/;;
+    var res = email.split("@");
+    var domain = res[1].split(".");
+    
+    if (reg.test(email) === false || (res[0].length < 3) || (res[0][0] === '_'))
+        {
+            
+            alert('Invalid Email Address');
+            return false;
+        }
+    if(res[0].includes('+' || '-' || ')'|| '{'||'}'||'!'||'@'||'#'||'$'||'%'||'^'||'&'||'*'||'('||'['||']'||':'||';'||'"'||' '||'<'||'>'||','||'?'||'/'||'`'||'~')){
+      alert('Invalid Email Address!!!!!');
+            return false;
+    }
+   
     if (custName.length < 3) {
       alert("Name should contain atleast 3 characters");
       custName.focus;
